@@ -42,7 +42,7 @@ export default function Home() {
         setConsoleOutput((prev) => [
           ...prev,
           {
-            message: `[${timestamp}] Server response: ${res}`,
+            message: `[${timestamp}] Server response: ${JSON.stringify(res)}`,
             color: "text-green-400",
           },
         ]);
