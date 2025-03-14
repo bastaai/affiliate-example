@@ -5,10 +5,12 @@ declare global {
   // Basta types
   type EmitData = Record<string, unknown>;
   type BastaResponse = object;
-  type BastaError = {
-    Code: number;
-    Message: string;
-  };
+  interface BastaError extends Error {
+    cause?: {
+      code: number;
+      message: string;
+    };
+  }
 
   // Basta interface
   interface BastaInterface {

@@ -34,12 +34,11 @@ export default function Home() {
         setConsoleOutput((prev) => [
           ...prev,
           {
-            message: `[${timestamp}] Server error response: ${res.message}`,
+            message: `[${timestamp}] Error: ${res.cause?.code} - ${res.message}`,
             color: "text-red-400",
           },
         ]);
       } else {
-        console.log("res", res);
         setConsoleOutput((prev) => [
           ...prev,
           {
@@ -66,7 +65,8 @@ export default function Home() {
         src="https://pkg.basta.app/js/affiliate.js"
         strategy="beforeInteractive"
         basta-account-id={process.env.NEXT_PUBLIC_BASTA_ACCOUNT_ID}
-        basta-debug="true"
+        basta-cookie-consent="true"
+        basta-debug
       />
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -81,7 +81,8 @@ export default function Home() {
               </p>
               <code className="bg-black/[.1] dark:bg-white/[.1] px-2 py-2 mx-2 my-2 rounded font-mono flex">
                 &lt;script src=&quot;https://pkg.basta.app/js/affiliate.js&quot;
-                basta-account-id=&quot;account-id&quot;&gt;&lt;/script&gt;
+                basta-account-id=&quot;account-id&quot;
+                basta-cookie-consent=&quot;true&quot;&gt;&lt;/script&gt;
               </code>
             </li>
             <li>
